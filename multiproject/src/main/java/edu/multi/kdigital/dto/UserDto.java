@@ -3,6 +3,7 @@ package edu.multi.kdigital.dto;
 public class UserDto {
 	String userId, userPw, userName, userEmail;
 
+	
 	public String getUserId() {
 		return userId;
 	}

@@ -1,88 +1,68 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html> 
+<html lang="en">
 <head>
-<link rel="stylesheet" href="css/header.css" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--=============== FAVICON ===============-->
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+
+<!--=============== BOXICONS ===============-->
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css'
+	rel='stylesheet'>
+
+<!--=============== SWIPER CSS ===============-->
+<link rel="stylesheet" href="/css/swiper-bundle.min.css">
+
+<!--=============== CSS ===============-->
+<link rel="stylesheet" href="/css/main.css">
+
+<title>barogo</title>
 <!-- header -->
-<script>
-  $(document).ready(function () {
-    $("#logoimg").css({
-      height: "75px",
-      
-      
-    });
+<body>
+	<header class="header" id="header">
+		<nav class="nav container">
+			<a href="#" class="nav__logo"> barogo <i
+				class='bx bxs-home-alt-2'></i>
+			</a>
 
-    $("#header, #nav").css({
-      width: "1850px",
-      height: "80px",
-      margin: "0 auto",
-    });
+			<div class="nav__menu">
+				<ul class="nav__list">
+					<li class="nav__item"><a href="/Hotel" class="nav__link">
+							<span>Hotel</span>
+					</a></li>
+					<li class="nav__item"><a href="/Market" class="nav__link">
+							<span>Market</span>
+					</a></li>
 
-    $("#nav").css({
-      display: "block",
-    });
+					<c:if test="${userId == null }">
+						<li class="nav__item"><a href="/login" class="nav__link">
+								<span>Login</span>
+						</a></li>
+					</c:if>
 
-    $("#header h1").css({
-      float: "left",
-      paddingTop: "0",
-      margin: "0 auto",
-    });
+					<c:if test="${userId != null }">
+						<li class="nav__item"><a href="/logout" class="nav__link">
+								<span>Logout</span>
+						</a></li>
+					</c:if>
+				</ul>
+			</div>
 
-    $("#header #headerlogin").css({
-      float: "right",
-    });
-
-    $("#headerlogin li").css({
-      float: "left",
-      marginTop: "0px",
-      marginLeft: "20px",
-      lineHeight: "60px",
-      fontSize: "25px",      
-    });
-    
-    
-
-
-  });
-</script>
-<!-- end of header -->
-</head>
-
-<header>
-<div id="header">
-	<h1 id="logo_font">
-		<a class="logo_font" href="<c:url value='/' />"> <img
-			src="<c:url value='images/barogo_logo1.png' />" alt=" " id="logoimg" />
-		</a>
-	</h1>
-	<div id="headerlogin">
-		<ul>
-			<li><a href="<c:url value='/Hotel' />" style="font-size: 30px;">Hotel</a></li>
-			<li><a href="<c:url value='/Market' />" style="font-size: 30px;">Market</a></li>
-		
-
-		<c:if test="${userId == null }">
+			<!-- Theme change button -->
+			<c:if test="${userId == null }">
+				<i class='bx bx-moon change-theme' id="theme-button"></i>
+				<a href="/Agreement" class="nav__button button">Sign up</a>
+			</c:if>
 			
-
-				<li><a href="<c:url value='/login' />" style="font-size: 15px;">Login</a></li>
-				<li><a href="<c:url value='/Agreement' />
-					"
-					style="font-size: 15px; border: 1px solid gray;">Sign Up</a></li>
-		
-		</c:if>
-		<c:if test="${userId != null }">
-			
-				<li><a href="<c:url value='/logout' />" style="font-size: 15px;">Logout</a></li>
-				<li><a href="<c:url value='/mypagepw_form' />" style="font-size: 15px;">Mypage</a></li>
-			
-		</c:if>
-		</ul>
-	</div>
-</div>
-</header>
-
+						<c:if test="${userId != null }">
+				<i class='bx bx-moon change-theme' id="theme-button"></i>
+				<a href="/mypagepw_form" class="nav__button button">Mypage</a>
+			</c:if>
+		</nav>
+	</header>
+</body>
 </html>

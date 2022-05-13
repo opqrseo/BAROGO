@@ -15,6 +15,8 @@
 <script type="text/javascript"src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript"src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script src="/js/payment.js"></script>
+
+
 <body>
 	<!-- header import -->
 	<%@ include file="/WEB-INF/views/include/findheader.jsp"%>
@@ -23,7 +25,7 @@
 	<br>
 	<br>
 
-	<form action="/payment" method="post" id="payform">
+	<form action="/payinsert" method="post" id="payform">
 		<div class="w3-content w3-container w3-margin-top">
 			<div class="w3-container w3-card-4">
 				<div class=" w3-large w3-margin-top">
@@ -69,6 +71,10 @@
 						<label class="label" for="buyer_addr">번지수 </label> <input
 							type="text" class="w3-input w3-border w3-round"
 							id="buyer_postcode" name="buyer_postcode">
+					</div>
+					
+					<div style="display:none">
+						<input type="text" class="w3-input w3-border w3-round" id="userId" name="userId" value="${userId}">
 					</div>
 
 				</div>

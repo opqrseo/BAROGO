@@ -9,8 +9,7 @@
 <title>바로고</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/login.css">
 
 
 <!-- JAVASCRIPT -->
@@ -20,66 +19,46 @@
 <body>
 
 	<!-- header import -->
-	<%@ include file="/WEB-INF/views/include/findheader.jsp"%>
+	<%@ include file="/WEB-INF/views/include/loginheader.jsp"%>
+	<section class="home section" id="home"></section>
 	<!-- end of header import -->
-	<hr>
-	<br>
-	<br>
 
-	<br>
-	<br>
-	<form method="post" class="form-signin" action="/find_id" name="findform">
-		<div class="w3-content w3-container w3-margin-top">
-			<div class="w3-container w3-card-4">
-				<div class="w3-center w3-large w3-margin-top">
-					<h1>Find Id</h1>
-					<br>
-					<div class="form-label-group">
-						<label for="name">Name</label> <input type="text" id="userName"
-							name="userName" class="w3-input">
 
-					</div>
-					<br>
-					<div class="form-label-group">
-						<label for="Email">Email</label> <input type="text" id="userEmail"
-							name="userEmail" class="w3-input"  onchange="email_Check()">
+	<form method="post" class="box" action="/find_id" name="findform">
+		<div class="box">
+		<h1>Find Id</h1>
+			<input type="text" placeholder="UserId" id="userName" name="userName">
+			<input type="text" placeholder="UserEmail" id="userEmail"
+				name="userEmail" onchange="email_Check()">
+			<div class="btn1">
+				<input type="submit" value="check">
+			</div>
+		</div>
 
-					</div>
-
-					<div class="btn1">
-						<input
-							class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round"
-							type="submit" value="check">
-					</div>
-
-					<!-- 이름과 이메일 일치하지 않을 때-->
-					<c:if test="${check == 1}">
-						<script>
+		<!-- 이름과 이메일 일치하지 않을 때-->
+		<c:if test="${check == 1}">
+			<script>
 							opener.document.findform.userName.value = "";
 							opener.document.findform.userEmail.value = "";
 						</script>
-						<script type="text/javascript">
+			<script type="text/javascript">
 							swal("다시입력해주세요", "입력하신 정보가 존재하지 않습니다", "warning");
 						</script>
-					</c:if>
+		</c:if>
 
-					<!-- 일치시 -->
-					<c:if test="${check == 0 }">
-						<script type="text/javascript">
-							swal("찾으시는 아이디는' ${id} ' 입니다");
-						</script>
-						<script type="text/javascript">
+		<!-- 일치시 -->
+		<c:if test="${check == 0 }">
+				
+
+			<script type="text/javascript">
 							$(".btn1").hide();
 						</script>
-						<div class="form-label-group">
-							<input
-								class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round"
-								type="button" value="Login" onclick="location.href='/login'">
-						</div>
-					</c:if>
-				</div>
+			<div class="box">
+				<h1>아이디는' ${id} ' 입니다</h1>
+				<input
+					type="button" value="Login" onclick="location.href='/login'">
 			</div>
-		</div>
+		</c:if>
 	</form>
 
 	<script type="text/javascript">

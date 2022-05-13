@@ -12,24 +12,19 @@
 <title>Insert title here</title>
 
     <!-- CSS -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="/css/styles.css" rel="stylesheet" />
+<link rel="stylesheet" href="/css/login.css">
 
     <!-- JAVASCRIPT -->
 <script src="/jquery-3.6.0.min.js"></script>
 <script src="/js/sweetalert.min.js"></script>
-<script src="/js/userlist.js"></script>
 <script src="/js/chatbot.js"></script>
 </head>
 <body>
 	<!-- header import -->
-	<%@ include file="/WEB-INF/views/include/mypageheader.jsp"%>
+	<%@ include file="/WEB-INF/views/include/loginheader.jsp"%>
+		<section class="home section" id="home"></section>
 	<!-- end of header import -->
-	<hr>
-	<br>
-	<br>
-	<br>
+	
 	<c:if test="${userId == null }">
 
 		<script type="text/javascript">
@@ -40,24 +35,19 @@
 
 
 	<c:if test="${userId != null }">
-		<form method="post" class="form-signin" action="/pw_injeung" name="findform">
-			<div class="w3-content w3-container w3-margin-top"style="width: 100%; margin-left: 500px;">
-				<div class="w3-container w3-card-4">
-					<div class="w3-center w3-large w3-margin-top">
-						<div class="form-group has-feedback">
+		<form method="post" class="box" action="/pw_injeung" name="findform">
 							<h3>Password Check</h3>
-							<br>
-							<label class="control-label" for="userId">아이디</label> 
-							<input class="w3-input" type="text" id="userId" name="userId" value="${userId}" readonly="readonly" />
+							<label for="userId">아이디</label> 
+							<input type="text" id="userId" name="userId" value="${userId}" readonly="readonly" />
 						</div>
 						<br>
-						<div class="form-label-group">
+						<div >
 							<label for="password">password</label>
-							<input type="password" id="userPw" name="userPw" class="w3-input" /> 	
+							<input type="password" id="userPw" name="userPw" /> 	
 						</div>
 						<br>
-						<div class="form-label-group">
-							<input class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round" type="submit" value="check">
+						<div >
+							<input type="submit" value="check">
 						</div>
 
 						<!-- 이름과 전화번호가 일치하지 않을 때-->

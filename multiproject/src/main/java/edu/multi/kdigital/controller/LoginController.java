@@ -41,7 +41,7 @@ public class LoginController {
 	@GetMapping("/logout")
 	public ModelAndView logout(HttpSession session, ModelAndView mv) {
 		uService.logout(session);
-		mv.setViewName("/login");
+		mv.setViewName("/main");
 		mv.addObject("msg", "logout");
 		return mv;
 	}

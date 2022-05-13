@@ -22,9 +22,10 @@
 </head>
 <body>
 	<!-- header import -->
-		<%@ include file="/WEB-INF/views/include/mypageheader.jsp"%>
+	<%@ include file="/WEB-INF/views/include/loginheader.jsp"%>
+		<section class="home section" id="home"></section>
 	<!-- end of header import -->
-	<hr>
+	
 			<!-- Page content-->
 			    <section class="section">
 
@@ -108,7 +109,7 @@
             </td>
           </div>
           <tr>
-            <td align="left">
+            <td align="right">
               <font size="2">이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택), 프로모션 안내 메일 수신(선택)에 모두 동의합니다.</font>
             </td>
 

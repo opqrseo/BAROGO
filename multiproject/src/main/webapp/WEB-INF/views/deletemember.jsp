@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,12 +38,15 @@
 						class="list-group-item list-group-item-action list-group-item-light p-3"
 						href="/mypage">회원 수정</a> <a
 						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/deletemember">회원 탈퇴</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" 
-						href="/marketceo">마켓 관리</a>
-						<a style="text-align: right; font-size: 15px;"href="#!">마켓 예약등록</a> 
-						<a style="text-align: right; font-size: 15px;" href="#!">마켓 등록/수정</a>
-						<a style="text-align: right; font-size: 15px;" href="#!">마켓 삭제</a>
+						href="/deletemember">회원 탈퇴</a> <a
+						class="list-group-item list-group-item-action list-group-item-light p-3"
+						href="/paymentlist.do?userId=${userId}">결제내역</a> <a
+						class="list-group-item list-group-item-action list-group-item-light p-3"
+						href="/marketceo">마켓 관리</a> <a
+						style="text-align: right; font-size: 15px;" href="#!">마켓 예약등록</a>
+					<a style="text-align: right; font-size: 15px;" href="#!">마켓
+						등록/수정</a> <a style="text-align: right; font-size: 15px;" href="#!">마켓
+						삭제</a>
 				</div>
 			</div>
 			<!-- Page content-->

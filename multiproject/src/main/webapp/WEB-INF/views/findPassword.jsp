@@ -9,8 +9,7 @@
 <title>바로고</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/login.css">
 
 
 <!-- JAVASCRIPT -->
@@ -20,45 +19,18 @@
 </head>
 <body>
 	<!-- header import -->
-	<%@ include file="/WEB-INF/views/include/findheader.jsp"%>
+	<%@ include file="/WEB-INF/views/include/loginheader.jsp"%>
+	<section class="home section" id="home"></section>
 	<!-- end of header import -->
-	<hr>
-	<br>
-	<br>
 
-	<br>
-	<br>
-	<form method="post" class="form-signin" action="/find_password"
-		name="findform">
-		<div class="pass">
-			<div class="w3-content w3-container w3-margin-top">
-				<div class="w3-container w3-card-4">
-					<div class="w3-center w3-large w3-margin-top">
-						<h1>Find Password</h1>
-						<div class="form-label-group">
-							<label for="id">ID</label> <input type="text" id="userId"
-								name="userId" class="w3-input" />
-						</div>
-						<br>
-						<div class="form-label-group">
-							<label for="name">name</label> <input type="text" id="userName"
-								name="userName" class="w3-input" />
-						</div>
-						<br>
-						<div class="form-label-group">
-							<label for="phone">Email</label> <input type="text"
-								id="userEmail" name="userEmail" class="w3-input" />
-						</div>
-						<br>
-						<div class="form-label-group">
-							<input
-								class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round"
-								type="submit" value="check">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<form method="post" class="box" action="/find_password" name="findform">
+		<h1>Find Password</h1>
+		<input type="text" placeholder="UserId" id="userId" name="userId">
+		<input type="text" placeholder="UserName" id="userName"
+			name="userName"> <input type="text" placeholder="UserEmail"
+			id="userEmail" name="userEmail"> <input type="submit"
+			value="check">
+
 
 
 		<!-- 정보가 일치하지 않을 때-->
@@ -80,30 +52,16 @@
 			<script type="text/javascript">
 				$(".pass").hide();
 			</script>
-			<div class="w3-content w3-container w3-margin-top">
-				<div class="w3-container w3-card-4">
-					<div class="w3-center w3-large w3-margin-top">
-						<h1>Revise Password</h1>
-						<br>
-						<div class="form-label-group">
-							<input type="hidden" id="id" name="updateid" value="${updateid }">
-							<label for="password">Password</label>
-							<input type="password" id="userPw" name="userPw" onchange="check_pw()" class="w3-input" />
-							
-						</div>
-						<br>
-						<div class="form-label-group">
-							<label for="confirmpassword">Confirm Password</label>
-							<input type="password" id="userPw2" onchange="check_pw()" name="userPw2"class="w3-input" /> 					
-						</div>
-						<br>
-						<div class="form-label-group">
-							<input
-								class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round"
-								type="button" value="update password" onclick="updatePassword()">
-						</div>
-					</div>
-				</div>
+
+			<div class="box">
+				<h1>Find Password</h1>
+				<input type="hidden" id="id" name="updateid" value="${updateid }">
+
+				<input type="password" id="userPw" name="userPw"
+					onchange="check_pw()" placeholder="Password" /> <input
+					type="password" id="userPw2" onchange="check_pw()" name="userPw2"
+					placeholder="Re-enter password" /> <input type="button"
+					value="update" onclick="updatePassword()">
 			</div>
 		</c:if>
 	</form>
