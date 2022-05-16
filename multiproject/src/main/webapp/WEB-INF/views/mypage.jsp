@@ -12,21 +12,27 @@
 <title>Insert title here</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="/css/styles.css" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mypage.css">
+<link rel="stylesheet" href="/css/sidebar.css">
 
 <!-- JAVASCRIPT -->
 <script src="/jquery-3.6.0.min.js"></script>
 <script src="/js/sweetalert.min.js"></script>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="/js/userlist.js"></script>
 <script src="/js/chatbot.js"></script>
 
 <script type="text/javascript">
 	$(function() {
 		$("#btnUpdate").click(function() {
+	          if ($("#userName").val() == "") {
+	              swal("이름을 입력해주세요.", "", "error");
+	              $("#userName").focus();
+	              return false;
+	            } 
+	            if ($("#userEmail").val() == "") {
+	                swal("이메일을 입력해주세요.", "", "error");
+	                $("#userEmail").focus();
+	                return false;
+	            }
 			if (confirm("회원정보를 수정하시겠습니까?")) {
 				// 폼 내부의 데이터를 전송할 주소
 				document.form1.action = "${path}/update";
@@ -42,32 +48,88 @@
 </head>
 <body>
 	<!-- header import -->
-	<%@ include file="/WEB-INF/views/include/mypageheader.jsp"%>
+	<%@ include file="/WEB-INF/views/include/loginheader.jsp"%>
+	<section class="home section" id="home"></section>
 	<!-- end of header import -->
-	<hr>
-	<section>
-	<!-- Sidebar-->
-		<div class="d-flex" id="wrapper">
-			<div class="border-end bg-white" id="sidebar-wrapper">
-				<div class="list-group list-group-flush">
-					<a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/Agreement">회원가입</a> <a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/mypage">회원 수정</a> <a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/deletemember">회원 탈퇴</a> <a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/paymentlist.do?userId=${userId}">결제내역</a> <a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/marketceo">마켓 관리</a> <a
-						style="text-align: right; font-size: 15px;" href="#!">마켓 예약등록</a>
-					<a style="text-align: right; font-size: 15px;" href="#!">마켓
-						등록/수정</a> <a style="text-align: right; font-size: 15px;" href="#!">마켓
-						삭제</a>
-				</div>
-			</div>
-			<c:if test="${userId == null }">
+
+	<!-- sidebar -->
+<div class="sidebar close"> 
+
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+    </div>
+    </section>
+ 
+   
+    <ul class="nav-links">
+    
+    
+    
+      <li>
+        <a href="/mypage">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">회원수정</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/mypage">회원수정</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="/deletemember">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">회원탈퇴</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/deletemember">회원탈퇴</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">내역확인</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">내역확인</a></li>
+          <li><a href="/reservation">호텔 예약내역</a></li>
+          <li><a href="/paymentlist.do?userId=${userId}">마켓 구매내역</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-book-alt' ></i>
+            <span class="link_name">호텔관리</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">호텔관리</a></li>
+          <li><a href="/hotel/manage">호텔관리자등록</a></li>
+          <li><a href="/hotel/manage/reservation">호텔예약관리</a></li>
+          <li><a href="/hotel/manage">호텔등록/수정</a></li>
+          <li><a href="/hotel/manage/delete">호텔 삭제</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="/marketceo">
+          <i class='bx bx-pie-chart-alt-2' ></i>
+          <span class="link_name">마켓 관리</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/marketceo">마켓 관리</a></li>
+        </ul>
+      </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+    </div>
+        			<c:if test="${userId == null }">
 				<script type="text/javascript">
 					alert("로그인후 이용해주세요.");
 					location.href = "/login";
@@ -75,38 +137,34 @@
 			</c:if>
 
 			<c:if test="${userId != null }">
-				<div class="mypage">
+				<div class="box">
 					<form name="form1" method="post">
-						<div class="w3-content w3-container w3-margin-top" style="max-width: 100%; width: 100%; margin-left:500px;">
-							<div class="w3-container w3-card-4">
-								<div class="w3-center w3-large w3-margin-top">
+
 									<h2>회원수정</h2>
-									<br /> <label for="name">Id</label> <input name="userId"
-										value="${userId }" class="w3-input" readonly required /> <br />
-									<br />
+									<br /> <label for="name">Id</label> 
+									<input type="text" name="userId" value="${userId }" readonly required /> <br />
+
 									<h2>정보변경</h2>
-									<br /> <label for="name">Revise Name</label> <input
-										name="userName" value="${userName }" class="w3-input" required />
-									<br /> 
-									   <label for="name">Revise Email</label> 
-									   <input id="userEmail" name="userEmail" value="${userEmail }" class="w3-input"required /> 							
-										<button class="w3-button w3-tiny w3-round-xlarge w3-black" type="button" id="checkEmail2" onclick="email_Check2()" style="float:right" >EmailCheck</button>
-										<span id="email_result"></span>
-										<br /> 
-										<br /> 
+									<label for="name">Revise Name</label> 
+									<input type="text" id="userName" name="userName" value="${userName }" required />
+									
+									<label for="name">Revise Email</label> 
+									 <div id="info__email"> 
+									<input type="text" id="userEmail" name="userEmail" value="${userEmail }" class="w3-input"required /> 							
+									<button class="custom-btn btn-1" type="button" id="checkEmail2" onclick="email_Check2()">EmailCheck</button>
+								 	<span id="email_result"></span>
+									</div>
 										
-										<input type="button"
-										value="회원정보 변경"
-										class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round"
-										id="btnUpdate" /> <br /> <br />
-								</div>
-							</div>
-						</div>
+									<input type="button" value="회원정보 변경"	id="btnUpdate" />
+								
 					</form>
 				</div>
-
 			</c:if>
-</section>
+			
+    </section>
+
+
+
 <script type="text/javascript">
 	      function email_Check2() {
     	  var emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -137,11 +195,9 @@
   		});
       }
 	      </script>
-	<!-- Bootstrap core JS-->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	
 	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
+	<script src="js/sidebar.js"></script>
 
 	<!-- footer import -->
 	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
