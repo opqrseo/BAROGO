@@ -11,6 +11,9 @@
 <meta name="author" content="" />
 <title>Insert title here</title>
 
+<!-- Boxiocns CDN Link -->
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
 <!-- CSS -->
 <link rel="stylesheet" href="/css/mypage.css">
 <link rel="stylesheet" href="/css/sidebar.css">
@@ -68,7 +71,7 @@
     
       <li>
         <a href="/mypage">
-          <i class='bx bx-cog' ></i>
+          <i class='bx bxs-user-check' ></i>
           <span class="link_name">회원수정</span>
         </a>
         <ul class="sub-menu blank">
@@ -77,7 +80,7 @@
       </li>
       <li>
         <a href="/deletemember">
-          <i class='bx bx-cog' ></i>
+          <i class='bx bxs-user-x' ></i>
           <span class="link_name">회원탈퇴</span>
         </a>
         <ul class="sub-menu blank">
@@ -87,7 +90,7 @@
       <li>
         <div class="iocn-link">
           <a href="#">
-            <i class='bx bx-collection' ></i>
+            <i class='bx bx-columns' ></i>
             <span class="link_name">내역확인</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
@@ -101,7 +104,7 @@
       <li>
         <div class="iocn-link">
           <a href="#">
-            <i class='bx bx-book-alt' ></i>
+            <i class='bx bx-hotel' ></i>
             <span class="link_name">호텔관리</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
@@ -116,7 +119,7 @@
       </li>
       <li>
         <a href="/marketceo">
-          <i class='bx bx-pie-chart-alt-2' ></i>
+          <i class='bx bx-cart'></i>
           <span class="link_name">마켓 관리</span>
         </a>
         <ul class="sub-menu blank">

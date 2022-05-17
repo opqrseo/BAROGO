@@ -60,7 +60,7 @@
 			<div class="container">
 				<span class="section__subtitle">Best Choise</span>
 				<h2 class="section__title">
-					Popular Residences<span>.</span>
+					MD's Pick<span>.</span>
 				</h2>
 
 				<div class="popular__container grid swiper">

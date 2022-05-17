@@ -36,7 +36,7 @@
 
 	<c:if test="${userId != null }">
 		<form method="post" class="box" action="/pw_injeung" name="findform">
-							<h3>Password Check</h3>
+							<h1>Password Check</h1>
 							<label for="userId">아이디</label> 
 							<input type="text" id="userId" name="userId" value="${userId}" readonly="readonly" />
 						</div>
