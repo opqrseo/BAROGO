@@ -87,10 +87,7 @@
 				</ul></li>
 		</ul>
 	</div>
-	<section class="home-section">
-		<div class="home-content">
-			<i class='bx bx-menu'></i>
-		</div>
+						<!-- sidebar end-->
 		
 		
 		<!-- Page content-->
@@ -148,7 +145,7 @@
 				<c:if test="${msg == false}">비밀번호가 맞지 않습니다.</c:if>
 			</div>
 			</c:if>
-	</section>
+
 
 	<!-- Bootstrap core JS-->
 	<script

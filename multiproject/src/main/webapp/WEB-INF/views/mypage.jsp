@@ -128,10 +128,7 @@
       </li>
 </ul>
   </div>
-  <section class="home-section">
-    <div class="home-content">
-      <i class='bx bx-menu' ></i>
-    </div>
+	<!-- sidebar end-->
         			<c:if test="${userId == null }">
 				<script type="text/javascript">
 					alert("로그인후 이용해주세요.");

@@ -12,9 +12,8 @@
 <title>Insert title here</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="/css/styles.css" rel="stylesheet" />
+<link rel="stylesheet" href="/css/marketceo.css">
+<link rel="stylesheet" href="/css/sidebar.css">
 <link href="/css/hotel.css" rel="stylesheet" />
 
 <!-- JAVASCRIPT -->
@@ -25,33 +24,71 @@
 </head>
 <body>
 	<!-- header import -->
-	<%@ include file="/WEB-INF/views/include/mypageheader.jsp"%>
+	<%@ include file="/WEB-INF/views/include/loginheader.jsp"%>
+	<section class="home section" id="home"></section>
 	<!-- end of header import -->
-	<hr>
-	<section>
-	<!-- Sidebar-->
-		<div class="d-flex" id="wrapper">
-			<div class="border-end bg-white" id="sidebar-wrapper">
-				<div class="list-group list-group-flush">
-					<a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/Agreement">회원가입</a> <a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/mypage">회원 수정</a> <a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/deletemember">회원 탈퇴</a> <a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/paymentlist.do?userId=${userId}">결제내역</a> <a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/marketceo">마켓 관리</a> <a
-						style="text-align: right; font-size: 15px;" href="#!">마켓 예약등록</a>
-					<a style="text-align: right; font-size: 15px;" href="#!">마켓
-						등록/수정</a> <a style="text-align: right; font-size: 15px;" href="#!">마켓
-						삭제</a>
-				</div>
+	
+		<!-- sidebar -->
+	<div class="sidebar close">
+
+		<section class="home-section">
+			<div class="home-content">
+				<i class='bx bx-menu'></i>
 			</div>
+		</section>
+		<ul class="nav-links">
+			<li><a href="/mypage"> <i class='bx bxs-user-check'></i> <span
+					class="link_name">회원수정</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/mypage">회원수정</a></li>
+				</ul></li>
+			<li><a href="/deletemember"> <i class='bx bxs-user-x'></i>
+					<span class="link_name">회원탈퇴</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/deletemember">회원탈퇴</a></li>
+				</ul></li>
+			<li>
+				<div class="iocn-link">
+					<a href="#"> <i class='bx bx-columns'></i> <span
+						class="link_name">내역확인</span>
+					</a> <i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">내역확인</a></li>
+					<li><a href="/reservation">호텔 예약내역</a></li>
+					<li><a href="/paymentlist.do?userId=${userId}">마켓 구매내역</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="iocn-link">
+					<a href="#"> <i class='bx bx-hotel'></i> <span
+						class="link_name">호텔관리</span>
+					</a> <i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">호텔관리</a></li>
+					<li><a href="/hotel/manage">호텔관리자등록</a></li>
+					<li><a href="/hotel/manage/reservation">호텔예약관리</a></li>
+					<li><a href="/hotel/manage">호텔등록/수정</a></li>
+					<li><a href="/hotel/manage/delete">호텔 삭제</a></li>
+				</ul>
+			</li>
+			<li><a href="/marketceo"> <i class='bx bx-cart'></i> <span
+					class="link_name">마켓 관리</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/marketceo">마켓 관리</a></li>
+				</ul></li>
+		</ul>
+		</div>
+	
+				<!-- sidebar end-->
+			<div class="box">
 				<div class="page_name">마켓사업자등록</div>
 				<div class="wrapper22">
+					<form id= "marketadmin" action="marketmypage" >
 					<div class="manage_hotel_list">
 						<div id="manage_hotel_add_form">
 							<div class="title mb10">
@@ -76,15 +113,17 @@
 								</div>
 								<div id="self-introduce">
 									<div>
+								
+									<!-- /////////////////////////////////////// -->
 									<label style="font-size : 20px;">Mart Name</label>
 									<br>
-									<input class="martname" type="text"  />
+									<input class="martname" type="text"  name="market"/>
 									</div>
 									<br>
 									<div>
 									<label style="font-size : 20px;">Mart Adress </label>
 									<br>
-									<input class="martadress" type="text"  />
+									<input class="martadress" type="text"  name="address"/>
 									</div>	
 								</div>
 							</div>
@@ -125,12 +164,15 @@
 								</div>
 							</div>
 						</div>
-						<button id="manage_add_ceo">제출</button>
+						<button id="manage_add_ceo" type="submit">제출</button>
+						<!-- /////////////////////////////////////// -->
+						
 					</div>
+					</form>
 				</div>
 			</div>
 			<div hidden id="business_id">${id}</div>
-	</section>
+	
 
 	<!-- footer import -->
 	<%@ include file="/WEB-INF/views/include/footer.jsp"%>

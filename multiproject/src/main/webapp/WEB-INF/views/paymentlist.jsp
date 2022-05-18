@@ -6,55 +6,108 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href="/css/styles.css" rel="stylesheet" />
+<!-- CSS -->
+<link rel="stylesheet" href="/css/paymentlist.css">
+<link rel="stylesheet" href="/css/sidebar.css">
+
+
+<!-- JAVASCRIPT -->
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/js/sweetalert.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="/js/chatbot.js"></script>
 
 <title>boardList</title>
-<style type="text/css">
-table {
-  border-spacing:  20px;
-}
-table  {
-  width: 100px;
-}
-</style>
+
 </head>
 <body>
 	<!-- header import -->
-	<%@ include file="/WEB-INF/views/include/mypageheader.jsp"%>
+	<%@ include file="/WEB-INF/views/include/loginheader.jsp"%>
+	<section class="home section" id="home"></section>
 	<!-- end of header import -->
-	<hr>
-	<section>
-		<!-- Sidebar-->
-		<div class="d-flex" id="wrapper">
-			<div class="border-end bg-white" id="sidebar-wrapper">
-				<div class="list-group list-group-flush">
-					<a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/Agreement">회원가입</a> <a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/mypage">회원 수정</a> <a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/deletemember">회원 탈퇴</a> <a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/paymentlist.do?userId=${userId}">결제내역</a> <a
-						class="list-group-item list-group-item-action list-group-item-light p-3"
-						href="/marketceo">마켓 관리</a> <a
-						style="text-align: right; font-size: 15px;" href="#!">마켓 예약등록</a>
-					<a style="text-align: right; font-size: 15px;" href="#!">마켓
-						등록/수정</a> <a style="text-align: right; font-size: 15px;" href="#!">마켓
-						삭제</a>
-				</div>
-			</div>
+
+
+	<!-- sidebar -->
+<div class="sidebar close"> 
+
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+    </div>
+    </section>
+ 
+   
+    <ul class="nav-links">
+    
+    
+    
+      <li>
+        <a href="/mypage">
+          <i class='bx bxs-user-check' ></i>
+          <span class="link_name">회원수정</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/mypage">회원수정</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="/deletemember">
+          <i class='bx bxs-user-x' ></i>
+          <span class="link_name">회원탈퇴</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/deletemember">회원탈퇴</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-columns' ></i>
+            <span class="link_name">내역확인</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">내역확인</a></li>
+          <li><a href="/reservation">호텔 예약내역</a></li>
+          <li><a href="/paymentlist.do?userId=${userId}">마켓 구매내역</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-hotel' ></i>
+            <span class="link_name">호텔관리</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">호텔관리</a></li>
+          <li><a href="/hotel/manage">호텔관리자등록</a></li>
+          <li><a href="/hotel/manage/reservation">호텔예약관리</a></li>
+          <li><a href="/hotel/manage">호텔등록/수정</a></li>
+          <li><a href="/hotel/manage/delete">호텔 삭제</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="/marketceo">
+          <i class='bx bx-cart'></i>
+          <span class="link_name">마켓 관리</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/marketceo">마켓 관리</a></li>
+        </ul>
+      </li>
+</ul>
+  </div>
+	<!-- sidebar end-->
+		<section class="box">
 			<div class="page-wrapper">
 				<div class="container-fluid">
-					<div class="col-lg-8">
+					<div class="col-lg-10">
 						<!--게시판 넓이 -->
-						<div class="col-lg-20">
-							<h1 class="page-header">결제 내역</h1>
+						<div class="col-lg-10">
+							<h2 class="page-header">결제 내역</h2>
 						</div>
 
 					</div>
@@ -71,15 +124,18 @@ table  {
 										<th style="width:100px; max-width:200px;">이메일</th>
 										<th style="width:100px; max-width:200px;">이름</th>
 										<th style="width:100px; max-width:300px;">전화번호</th>
-										<th style="max-width:600px;">주소</th>
-										<th>번지수</th>								
+										<th style="width:300px; max-width:1000px;">주소</th>
+										<th>번지수</th>		
+																
 									</tr>
-									
+									<hr>
 								</thead>
+					
 								<tbody>
+
 									<c:forEach items="${list}" var="payment">
 										<tr>
-										<br>
+										
 											<td>${payment.payno} </td>											
 											<td>${payment.userId} </td>
 											<td>${payment.proname}</td>
@@ -89,15 +145,17 @@ table  {
 											<td>${payment.buyer_tel}</td>
 											<td>${payment.buyer_addr}</td>
 											<td>${payment.buyer_postcode}</td>
+											
 										</tr>
-
+								
 									</c:forEach>									
 								</tbody>
+								
 							</table>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>			
 	</section>
 </body>
 </html>

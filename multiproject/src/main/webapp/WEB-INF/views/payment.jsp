@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,82 +8,85 @@
 <title>Insert title here</title>
 </head>
 
-    <!-- CSS -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- CSS -->
+<link rel="stylesheet" href="css/payment.css">
 
-    <!-- JAVASCRIPT -->
-<script type="text/javascript"src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript"src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<!-- JAVASCRIPT -->
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script src="/js/payment.js"></script>
-
-
 <body>
 	<!-- header import -->
-	<%@ include file="/WEB-INF/views/include/findheader.jsp"%>
+	<%@ include file="/WEB-INF/views/include/loginheader.jsp"%>
+	<section class="home section" id="home"></section>
 	<!-- end of header import -->
-	<hr>
 	<br>
 	<br>
+	<div class="container">
 
-	<form action="/payinsert" method="post" id="payform">
-		<div class="w3-content w3-container w3-margin-top">
-			<div class="w3-container w3-card-4">
-				<div class=" w3-large w3-margin-top">
-					<div>
-						<label class="label" for="proname">상품 이름 </label> <br> <input
-							type="text" class="w3-input" id="proname" name="proname">
-					</div>
+		<form action="/payinsert" method="post" id="payform">
 
-					<div>
-						<label class="label" for="amount">가격 </label> <br> <input
-							type="text" class="w3-input" id="amount" name="amount">
+			<div class="row">
+				<div class="col">
+
+					<h3 class="title">payment</h3>
+
+					<div class="inputBox">
+						<span>product name :</span> <input type="text" class="w3-input"
+							id="proname" name="proname" value="${paydto.name }">
 					</div>
-					<div>
-						<br> <br>
-						<h2>결제 정보 등록</h2>
-						<p>정보 입력후 결제하기를 눌러주세요</p>
-					</div>
-					<div>
-						<label class="label" for="buyer_email">이메일</label> <input
-							type="text" class="w3-input w3-border w3-round" id="buyer_email"
-							name="buyer_email">
+					<div class="inputBox">
+						<span>price :</span> <input type="text" class="w3-input"
+							id="amount" name="amount" value="${paydto.price }">
 					</div>
 
-					<div>
-						<label class="label" for=" buyer_name">이름 </label> <input
-							type="text" class="w3-input w3-border w3-round" id="buyer_name"
-							name="buyer_name">
-					</div>
 
-					<div>
-						<label class="label" for="buyer_tel">번호 </label> <input
-							type="text" class="w3-input w3-border w3-round" id="buyer_tel"
+
+				</div>
+				<div class="col">
+
+					<h3 class="title">billing address</h3>
+
+					<div class="inputBox">
+						<span>full name :</span> <input type="text" id="buyer_name"
+							name="buyer_name" placeholder="Name">
+					</div>
+					<div class="inputBox">
+						<span>email :</span> <input type="email" id="buyer_email"
+							name="buyer_email" placeholder="example@example.com">
+					</div>
+					<div class="inputBox">
+						<span>address :</span> <input type="text" id="buyer_addr"
+							name="buyer_addr">
+					</div>
+					<div class="inputBox">
+						<span>number :</span> <input type="text" id="buyer_tel"
 							name="buyer_tel">
 					</div>
 
-					<div>
-						<label class="label" for="buyer_addr">주소 </label> <input
-							type="text" class="w3-input w3-border w3-round" id="buyer_addr"
-							name="buyer_addr">
+					<div class="inputBox">
+						<span>street number :</span> <input id="buyer_postcode"
+							name="buyer_postcode">
 					</div>
 
-					<div>
-						<label class="label" for="buyer_addr">번지수 </label> <input
-							type="text" class="w3-input w3-border w3-round"
-							id="buyer_postcode" name="buyer_postcode">
-					</div>
-					
-					<div style="display:none">
-						<input type="text" class="w3-input w3-border w3-round" id="userId" name="userId" value="${userId}">
-					</div>
 
+					<div style="display: none">
+						<input type="text" id="userId" name="userId" value="${userId}">
+					</div>
 				</div>
-				<button id="iamportPayment" type="button"
-					class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round">결제하기</button>
+
+
+
 			</div>
-		</div>
-	</form>
+
+			<button type="button" id="iamportPayment" class="submit-btn">proceed
+				to checkout</button>
+
+		</form>
+
+	</div>
 
 
 </body>
