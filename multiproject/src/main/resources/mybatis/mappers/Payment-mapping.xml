@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.multi.kdigital.dao.PaymentMapper">
+
+
+	<!-- paymentin -->
+	<insert id="paymentinfo">
+		insert into `payment`
+		(`payno`,`userId`,`proname`,`amount`,`buyer_email`,`buyer_name`,`buyer_tel`,`buyer_addr`,`buyer_postcode`)
+		values
+		(#{payno},#{userId},#{proname},#{amount},#{buyer_email},#{buyer_name},#{buyer_tel},#{buyer_addr},#{buyer_postcode});
+	</insert>
+	
+	    <select id="paymentList" resultType="payment" parameterType="payment">
+            SELECT
+                 payno,userId,proname,amount,buyer_email,buyer_name,buyer_tel,buyer_addr,buyer_postcode
+             FROM
+                  payment where userId=#{userId}
+        </select>
+
+
+
+
+</mapper>
