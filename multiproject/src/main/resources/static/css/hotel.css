@@ -223,10 +223,10 @@ text-align: right;
 }
 .page_name{
 /* 	
-	margin-top:40px;*/
-	margin-left: 30px; 
+	margin-top:40px;*/ 
 	font-size: 30px;
 	font-weight: 600;
+	color: white;
 }
 #add_hotel{
 
@@ -646,6 +646,7 @@ display:none;
 	padding:15px;
 	border: 1px solid rgba(0,0,0,0.2);
 	border-radius: 15px;
+	color:white;
 }
 
 
@@ -1417,8 +1418,7 @@ input[type="radio"]:checked + label span {
 	font-family: sans-serif;
 }
 #reservation_lists{
-		margin-top:20px;
-	margin-bottom:30px;
+	text-align:center;
 	font-size:16px;
 	margin-left:60px;
 }
