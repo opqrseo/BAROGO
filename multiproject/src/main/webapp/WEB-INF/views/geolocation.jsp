@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 
 <link href="/css/geolocation.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/markethotel.css">
 <script src="/jquery-3.6.0.min.js"></script>
 <script src="/js/chatbot.js"></script>
 <script src="/js/market.js"></script>
@@ -49,13 +50,11 @@ $(document).ready(
 </style>
 
 </head>
-<body  style="background-image: URL(/images/market.png); 
-background-repeat: no-repeat;
-background-size: 100% 250px; ">
+
 	<!-- header import -->
-	<%@ include file="/WEB-INF/views/include/hotelheader.jsp"%>
-	<!-- end of header import -->
-	<hr />
+	<%@ include file="/WEB-INF/views/include/hotelmarket.jsp"%>
+	<section class="home section" id="home"> </section>
+
 	<div id="container">
 	
 	<div id='container1'>

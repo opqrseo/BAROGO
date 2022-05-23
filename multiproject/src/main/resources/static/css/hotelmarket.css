@@ -1,86 +1,316 @@
-body{
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background: #34495e;
-}
-.box{
-  width: 400px;
-  padding: 40px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  background: #191919;
-  text-align: center;
-}
-.box h1{
-  color: white;
-  font-weight: 500;
-}
-.box input[type = "text"],.box input[type = "password"]{
-  border:0;
-  background: none;
-  display: block;
-  margin: 20px auto;
-  text-align: center;
-  border: 2px solid #3498db;
-  padding: 14px 10px;
-  width: 200px;
-  outline: none;
-  color: white;
-  border-radius: 24px;
-  transition: 0.25s;
-}
-.box input[type = "text"]:focus,.box input[type = "password"]:focus{
-  width: 280px;
-  border-color: #2ecc71;
-}
-.box input[type = "button"]{
-  border:0;
-  background: none;
-  display: block;
-  margin: 20px auto;
-  text-align: center;
-  border: 2px solid #2ecc71;
-  padding: 14px 40px;
-  outline: none;
-  color: white;
-  border-radius: 24px;
-  transition: 0.25s;
-  cursor: pointer;
-}
-.box input[type = "button"]:hover{
-  background: #2ecc71;
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(228, 66%, 53%);
+  --first-color-alt: hsl(228, 66%, 47%);
+  --first-color-light: hsl(228, 62%, 59%);
+  --first-color-lighten: hsl(228, 100%, 97%);
+  --second-color: hsl(25, 83%, 53%);
+  --title-color: hsl(228, 57%, 28%);
+  --text-color: hsl(228, 15%, 50%);
+  --text-color-light: hsl(228, 12%, 75%);
+  --border-color: hsl(228, 99%, 98%);
+  --body-color: #fff;
+  --container-color: #fff;
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: 'Poppins', sans-serif;
+  --biggest-font-size: 2.25rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
 }
 
-.box input[type = "text"]:focus,.box input[type = "password"]:focus{
-  width: 280px;
-  border-color: #2ecc71;
-}
-.box input[type = "submit"]{
-  border:0;
-  background: none;
-  display: block;
-  margin: 20px auto;
-  text-align: center;
-  border: 2px solid #2ecc71;
-  padding: 14px 40px;
-  outline: none;
-  color: white;
-  border-radius: 24px;
-  transition: 0.25s;
-  cursor: pointer;
-}
-.box input[type = "submit"]:hover{
-  background: #2ecc71;
+/* Responsive typography */
+@media screen and (min-width: 1024px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
 }
 
-.btn {
-  background: #191919;
-  color: #fff;
-  line-height: 42px;
-  padding: 0px 4px 0px 4px;;
+/*=============== BASE ===============*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  transition: .3s; /* For animation dark mode */
+}
+
+h1, h2, h3 {
+  color: white;
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+input,
+button {
+  font-family: var(--body-font);
+  outline: none;
   border: none;
+}
+
+/*=============== THEME ===============*/
+.change-theme {
+  font-size: 1.25rem;
+  color: #fff;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.change-theme:hover {
+  color: var(--first-color);
+}
+
+
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1024px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.section {
+  padding: 4.5rem 0 2rem;
+}
+
+.section__title {
+  font-size: var(--h2-font-size);
+  margin-bottom: 1rem;
+}
+
+.section__title span {
+  color: var(--second-color);
+}
+
+.section__subtitle {
+  display: block;
+  font-size: var(--small-font-size);
+  color: var(--second-color);
+}
+
+.main {
+  overflow: hidden; /* For the animations ScrollReveal */
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: var(--z-fixed);
+  transition: .4s; /* For animation dark mode */
+}
+
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  column-gap: .25rem;
+  font-weight: var(--font-medium);
+  transition: .3s;
+}
+
+.nav__logo i {
+  font-size: 1rem;
+}
+
+.nav__logo:hover {
+  color: var(--first-color);
+}
+
+@media screen and (max-width: 1023px) {
+  .nav__menu {
+    position: fixed;
+    background-color: var(--container-color);
+    box-shadow: 0 8px 24px hsla(228, 66%, 45%, .15);
+    width: 90%;
+    left: 0;
+    right: 0;
+    transition: .4s;
+  }
+
+
+
+  .nav__link span {
+    display: none;
+  }
+}
+
+
+
+/*=============== HOME ===============*/
+.home {
+  background: linear-gradient(170deg, 
+                hsl(0, 0%, 22%) 0%,
+                hsl(0, 0%, 6%) 30%);
+  padding-bottom: 0;
+}
+
+
+/*=============== BUTTON ===============*/
+.button {
+  display: inline-block;
+  background: linear-gradient(101deg,
+                hsl(228, 66%, 53%),
+                hsl(228, 66%, 47%));
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: .5rem;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  box-shadow: 0 4px 8px hsla(228, 66%, 45%, .25);
+  transition: .3s;
   cursor: pointer;
 }
+
+.button:hover {
+  box-shadow: 0 4px 12px hsla(228, 66%, 45%, .25);
+}
+
+.nav__button {
+  display: none;
+}
+
+
+
+/*=============== SUBSCRIBE ===============*/
+.subscribe {
+  padding: 2.5rem 0;
+}
+
+.subscribe__container {
+  background-color: var(--first-color);
+  padding: 3rem 2rem;
+  border-radius: 1.25rem;
+  border: 6px solid var(--first-color-light);
+  text-align: center;
+}
+
+.subscribe__title {
+  font-size: var(--h2-font-size);
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.subscribe__description {
+  color: hsl(228, 90%, 92%);
+  font-size: var(--small-font-size);
+  margin-bottom: 2rem;
+}
+
+.subscribe__button {
+  border: 2px solid #fff;
+  background: var(--first-color-light);
+  font-size: var(--small-font-size);
+}
+
+.subscribe__button:hover {
+  background-color: var(--first-color);
+}
+
+
+
+/* For large devices */
+@media screen and (min-width: 1023px) {
+
+  .section__title {
+    font-size: 2.25rem;
+  }
+  .section__subtitle {
+    font-size: var(--normal-font-size);
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+  .nav__menu {
+    width: initial;
+    margin-left: auto;
+  }
+  .nav__list {
+    display: flex;
+    column-gap: 3rem;
+  }
+  .nav__link {
+    color: var(--text-color-light);
+  }
+  .nav__link i {
+    display: none;
+  }
+  .nav__button {
+    display: inline-block;
+  }
+
+
+
+  .change-theme {
+    margin: 0 3rem;
+    color: var(--text-color-light);
+  }
+
+
+
+}
+
+@media screen and (min-width: 1040px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .home__container {
+    column-gap: 4rem;
+  }
+}
+

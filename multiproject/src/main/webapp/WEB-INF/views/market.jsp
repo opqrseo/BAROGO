@@ -52,13 +52,7 @@ function numchange(i){
 </style>
 
 </head>
-<body  style="background-image: URL(images/market.png); 
-background-repeat: no-repeat;
-background-size: 100% 250px; ">
-	<!-- header import -->
-	<%@ include file="/WEB-INF/views/include/hotelheader.jsp"%>
-	<!-- end of header import -->
-	<hr />
+<body>
 	
 
 	<div id="con1">

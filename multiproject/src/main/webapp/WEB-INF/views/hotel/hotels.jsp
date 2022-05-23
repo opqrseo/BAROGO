@@ -16,14 +16,11 @@
 <script type="text/javascript"src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <link rel="stylesheet" href="/css/hotel.css" />
 </head>
-<body style="background-image: URL(/images/hotel.png); 
-background-repeat: no-repeat;
-background-size: 100% 250px; 
- background-blend-mode: multiply;">
+<body>
 	<!-- header import -->
-	<%@ include file="/WEB-INF/views/include/hotelheader.jsp"%>
+	<%@ include file="/WEB-INF/views/include/hotelmarket.jsp"%>
+	<section class="home section" id="home"></section>
 	<!-- end of header import -->
-	<hr />
 	<section>
 	
 		<div class="hotel_listss">
