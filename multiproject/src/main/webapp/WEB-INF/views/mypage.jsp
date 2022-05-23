@@ -161,7 +161,6 @@
 				</div>
 			</c:if>
 			
-    </section>
 
 
 

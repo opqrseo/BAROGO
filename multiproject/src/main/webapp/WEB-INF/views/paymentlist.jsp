@@ -123,7 +123,7 @@
 										<th style="width:100px; max-width:200px;">가격</th>
 										<th style="width:100px; max-width:200px;">이메일</th>
 										<th style="width:100px; max-width:200px;">이름</th>
-										<th style="width:100px; max-width:300px;">전화번호</th>
+										<th style="width:150px; max-width:300px;">전화번호</th>
 										<th style="width:300px; max-width:1000px;">주소</th>
 										<th>번지수</th>		
 																

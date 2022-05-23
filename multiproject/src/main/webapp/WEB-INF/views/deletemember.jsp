@@ -33,61 +33,79 @@
 
 
 	<!-- sidebar -->
-	<div class="sidebar close">
+<div class="sidebar close"> 
 
-		<section class="home-section">
-			<div class="home-content">
-				<i class='bx bx-menu'></i>
-			</div>
-		</section>
-		<ul class="nav-links">
-			<li><a href="/mypage"> <i class='bx bxs-user-check'></i> <span
-					class="link_name">회원수정</span>
-			</a>
-				<ul class="sub-menu blank">
-					<li><a class="link_name" href="/mypage">회원수정</a></li>
-				</ul></li>
-			<li><a href="/deletemember"> <i class='bx bxs-user-x'></i>
-					<span class="link_name">회원탈퇴</span>
-			</a>
-				<ul class="sub-menu blank">
-					<li><a class="link_name" href="/deletemember">회원탈퇴</a></li>
-				</ul></li>
-			<li>
-				<div class="iocn-link">
-					<a href="#"> <i class='bx bx-columns'></i> <span
-						class="link_name">내역확인</span>
-					</a> <i class='bx bxs-chevron-down arrow'></i>
-				</div>
-				<ul class="sub-menu">
-					<li><a class="link_name" href="#">내역확인</a></li>
-					<li><a href="/reservation">호텔 예약내역</a></li>
-					<li><a href="/paymentlist.do?userId=${userId}">마켓 구매내역</a></li>
-				</ul>
-			</li>
-			<li>
-				<div class="iocn-link">
-					<a href="#"> <i class='bx bx-hotel'></i> <span
-						class="link_name">호텔관리</span>
-					</a> <i class='bx bxs-chevron-down arrow'></i>
-				</div>
-				<ul class="sub-menu">
-					<li><a class="link_name" href="#">호텔관리</a></li>
-					<li><a href="/hotel/manage">호텔관리자등록</a></li>
-					<li><a href="/hotel/manage/reservation">호텔예약관리</a></li>
-					<li><a href="/hotel/manage">호텔등록/수정</a></li>
-					<li><a href="/hotel/manage/delete">호텔 삭제</a></li>
-				</ul>
-			</li>
-			<li><a href="/marketceo"> <i class='bx bx-cart'></i> <span
-					class="link_name">마켓 관리</span>
-			</a>
-				<ul class="sub-menu blank">
-					<li><a class="link_name" href="/marketceo">마켓 관리</a></li>
-				</ul></li>
-		</ul>
-	</div>
-						<!-- sidebar end-->
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+    </div>
+    </section>
+ 
+   
+    <ul class="nav-links">
+    
+    
+    
+      <li>
+        <a href="/mypage">
+          <i class='bx bxs-user-check' ></i>
+          <span class="link_name">회원수정</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/mypage">회원수정</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="/deletemember">
+          <i class='bx bxs-user-x' ></i>
+          <span class="link_name">회원탈퇴</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/deletemember">회원탈퇴</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-columns' ></i>
+            <span class="link_name">내역확인</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">내역확인</a></li>
+          <li><a href="/reservation">호텔 예약내역</a></li>
+          <li><a href="/paymentlist.do?userId=${userId}">마켓 구매내역</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-hotel' ></i>
+            <span class="link_name">호텔관리</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">호텔관리</a></li>
+          <li><a href="/hotel/manage">호텔관리자등록</a></li>
+          <li><a href="/hotel/manage/reservation">호텔예약관리</a></li>
+          <li><a href="/hotel/manage">호텔등록/수정</a></li>
+          <li><a href="/hotel/manage/delete">호텔 삭제</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="/marketceo">
+          <i class='bx bx-cart'></i>
+          <span class="link_name">마켓 관리</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/marketceo">마켓 관리</a></li>
+        </ul>
+      </li>
+</ul>
+  </div>
+	<!-- sidebar end-->
 		
 		
 		<!-- Page content-->
@@ -130,7 +148,7 @@
 		<c:if test="${userId != null }">
 			<div class="box">
 				<form action="/delete" method="post" id="delForm">
-					<h1>회원 탈퇴</h1>
+					<h2>회원 탈퇴</h2>
 					<div>
 						<label class="control-label" for="userId">Id</label> <input
 							class="w3-input" type="text" id="userId" name="userId"
